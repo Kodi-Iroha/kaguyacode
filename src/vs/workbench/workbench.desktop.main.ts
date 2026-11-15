@@ -192,12 +192,12 @@ import './contrib/multiDiffEditor/browser/multiDiffEditor.contribution.js';
 // Remote Tunnel
 import './contrib/remoteTunnel/electron-browser/remoteTunnel.contribution.js';
 
-// Chat
-import './contrib/chat/electron-browser/chat.contribution.js';
-import './contrib/chat/electron-browser/tunnelHost.contribution.js';
+// // Chat
+// import './contrib/chat/electron-browser/chat.contribution.js';
+// import './contrib/chat/electron-browser/tunnelHost.contribution.js';
 
-// Copilot Voice
-import './contrib/agentsVoice/electron-browser/agentsVoiceNativeCommands.js';
+// // Copilot Voice
+// import './contrib/agentsVoice/electron-browser/agentsVoiceNativeCommands.js';
 
 // Encryption
 import './contrib/encryption/electron-browser/encryption.contribution.js';
@@ -208,8 +208,8 @@ import './contrib/modernUI/electron-browser/frostedGlass.contribution.js';
 // Emergency Alert
 import './contrib/emergencyAlert/electron-browser/emergencyAlert.contribution.js';
 
-// MCP
-import './contrib/mcp/electron-browser/mcp.contribution.js';
+// // MCP
+// import './contrib/mcp/electron-browser/mcp.contribution.js';
 
 // Policy Export
 import './contrib/policyExport/electron-browser/policyExport.contribution.js';
