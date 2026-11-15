@@ -78,7 +78,7 @@ export class CommandsQuickAccessProvider extends AbstractEditorCommandsQuickAcce
 		@IPreferencesService private readonly preferencesService: IPreferencesService,
 		@IProductService private readonly productService: IProductService,
 		@IAiRelatedInformationService private readonly aiRelatedInformationService: IAiRelatedInformationService,
-		@IChatAgentService private readonly chatAgentService: IChatAgentService,
+		// @IChatAgentService private readonly chatAgentService: IChatAgentService,
 	) {
 		super({
 			showAlias: !Language.isDefaultVariant(),
@@ -168,31 +168,31 @@ export class CommandsQuickAccessProvider extends AbstractEditorCommandsQuickAcce
 			// Ignore and continue to add "Ask in Chat" option
 		}
 
-		// If enabled in settings, add "Ask in Chat" option after a separator (if needed).
-		if (this.configuration.showAskInChat) {
-			const defaultAgent = this.chatAgentService.getDefaultAgent(ChatAgentLocation.Chat);
-			if (defaultAgent) {
-				if (picksSoFar.length || additionalPicks.length) {
-					additionalPicks.push({
-						type: 'separator'
-					});
-				}
+		// // If enabled in settings, add "Ask in Chat" option after a separator (if needed).
+		// if (this.configuration.showAskInChat) {
+		// 	const defaultAgent = this.chatAgentService.getDefaultAgent(ChatAgentLocation.Chat);
+		// 	if (defaultAgent) {
+		// 		if (picksSoFar.length || additionalPicks.length) {
+		// 			additionalPicks.push({
+		// 				type: 'separator'
+		// 			});
+		// 		}
 
-				additionalPicks.push({
-					label: localize('commandsQuickAccess.askInChat', "Ask in Chat: {0}", filter),
-					commandId: this.configuration.experimental.askChatLocation === 'quickChat' ? ASK_QUICK_QUESTION_ACTION_ID : CHAT_OPEN_ACTION_ID,
-					args: [filter],
-					buttons: [{
-						iconClass: ThemeIcon.asClassName(Codicon.gear),
-						tooltip: localize('commandsQuickAccess.configureAskInChatSetting', "Configure visibility"),
-					}],
-					trigger: () => {
-						void this.preferencesService.openSettings({ jsonEditor: false, query: 'workbench.commandPalette.showAskInChat' });
-						return TriggerAction.CLOSE_PICKER;
-					},
-				});
-			}
-		}
+		// 		additionalPicks.push({
+		// 			label: localize('commandsQuickAccess.askInChat', "Ask in Chat: {0}", filter),
+		// 			commandId: this.configuration.experimental.askChatLocation === 'quickChat' ? ASK_QUICK_QUESTION_ACTION_ID : CHAT_OPEN_ACTION_ID,
+		// 			args: [filter],
+		// 			buttons: [{
+		// 				iconClass: ThemeIcon.asClassName(Codicon.gear),
+		// 				tooltip: localize('commandsQuickAccess.configureAskInChatSetting', "Configure visibility"),
+		// 			}],
+		// 			trigger: () => {
+		// 				void this.preferencesService.openSettings({ jsonEditor: false, query: 'workbench.commandPalette.showAskInChat' });
+		// 				return TriggerAction.CLOSE_PICKER;
+		// 			},
+		// 		});
+		// 	}
+		// }
 
 		return additionalPicks;
 	}
